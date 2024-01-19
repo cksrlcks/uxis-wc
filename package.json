@@ -16,8 +16,12 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-decorators": "^7.23.7",
+    "es6-slide-up-down": "^1.0.0",
     "lit": "^3.1.1",
     "mobile-device-detect": "^0.4.3",
-    "prismjs": "^1.29.0"
+    "prismjs": "^1.29.0",
+    "simple-slide-toggle": "^0.1.5",
+    "slide-anim": "^1.4.0",
+    "slide-element": "^2.3.1"
   }
 }

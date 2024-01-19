@@ -241,7 +241,12 @@ table td {
   padding: 20px;
 }
 
-.app-left .sample-nav {
+.app-left .sample-nav .notyet {
+  opacity: 0.3;
+}
+
+.app-left .sample-nav .notyet:after {
+  content: '(미완)';
 }
 
 .app-left .nav-wrapper {
@@ -338,4 +343,9 @@ table td {
 .sample-table td {
   border-color: 1px solid rgb(208, 215, 222);
   padding: 0.4em 1em;
+}
+
+.sample-table .th-title {
+  background: #f8f9fa;
+  text-align: left;
 }

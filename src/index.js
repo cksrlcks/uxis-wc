@@ -3,5 +3,3 @@ import CodeBlock from './component/code_block/index.js';
 
 import { Element as Accordion } from './component/accordion/accordion.js';
 import { Element as AccordionItem } from './component/accordion/accordion_item.js';
-import { Element as AccordionTitle } from './component/accordion/accordion_title.js';
-import { Element as AccordionContent } from './component/accordion/accordion_content.js';

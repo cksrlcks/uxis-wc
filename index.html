@@ -21,13 +21,31 @@
           <hr />
           <nav class="sample-nav">
             <li>
-              <a href="#codeBlock">wc-code-block</a>
+              <a href="#codeBlock" class="notyet">wc-code-block</a>
             </li>
             <li>
               <a href="#hdrag">wc-horizontal-drag</a>
             </li>
             <li>
               <a href="#accordion">wc-accordion</a>
+            </li>
+            <li>
+              <a href="#" class="notyet">wc-skip-nav</a>
+            </li>
+            <li>
+              <a href="#" class="notyet">wc-skip-nav</a>
+            </li>
+            <li>
+              <a href="#" class="notyet">wc-sns-list</a>
+            </li>
+            <li>
+              <a href="#" class="notyet">wc-tooltip</a>
+            </li>
+            <li>
+              <a href="#" class="notyet">wc-loading-spinner</a>
+            </li>
+            <li>
+              <a href="#" class="notyet">wc-preview</a>
             </li>
           </nav>
         </div>
@@ -188,11 +206,15 @@
           <ul class="sample-description">
             <li>간단한 '자주묻는질문'등에 사용하는 아코디언</li>
           </ul>
+
           <div class="gap"></div>
 
-          <h3>Props</h3>
+          <div class="badge">Props</div>
           <table class="sample-table">
             <thead>
+              <tr>
+                <th colspan="4" class="th-title">wc-accd</th>
+              </tr>
               <tr>
                 <th>Property</th>
                 <th>Type</th>
@@ -208,10 +230,36 @@
                 <td><code>combine</code>or<code>single</code></td>
               </tr>
             </tbody>
+            <thead>
+              <tr>
+                <th colspan="4" class="th-title">wc-accd-item</th>
+              </tr>
+              <tr>
+                <th>Property</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>open</code></td>
+                <td></td>
+                <td></td>
+                <td>처음 열어두기 원하는 item에 <code>open</code>적어주세요</td>
+              </tr>
+            </tbody>
           </table>
-          <div>
+
+          <div class="gap"></div>
+
+          <div class="badge">Sample</div>
+          <div style="width: 600px; border: 6px solid #eee; border-radius: 16px; overflow: hidden; padding: 20px">
             <style>
-              /* .sample-accordion wc-accordion-title {
+              .sample-accordion wc-accd-item {
+                margin-bottom: 10px;
+              }
+              .sample-accordion [slot='title'] a {
                 display: block;
                 padding: 1em 12px;
                 background: #f8f9fa;
@@ -219,45 +267,52 @@
                 border-radius: 8px;
               }
 
-              .sample-accordion wc-accordion-content div {
+              .sample-accordion [slot='content'] {
                 display: block;
                 border: 1px solid #eee;
                 padding: 12px;
                 margin-top: 4px;
                 border-radius: 8px;
-              } */
+              }
             </style>
-            <wc-accordion class="sample-accordion" mode="combine">
-              <wc-accordion-item>
-                <wc-accordion-title href="http://naver.com">1뎁스</wc-accordion-title>
-                <wc-accordion-content>
-                  <div>2뎁스내용 <a href="#">fff</a></div>
-                </wc-accordion-content>
-              </wc-accordion-item>
-              <wc-accordion-item>
-                <wc-accordion-title href="http://naver.com">1뎁스</wc-accordion-title>
-                <wc-accordion-content>
-                  <div>2뎁스내용 <a href="#">fff</a></div>
-                </wc-accordion-content>
-              </wc-accordion-item>
-              <wc-accordion-item>
-                <wc-accordion-title href="http://naver.com">1뎁스</wc-accordion-title>
-                <wc-accordion-content>
-                  <wc-accordion-item>
-                    <wc-accordion-title href="http://naver.com">2뎁스</wc-accordion-title>
-                    <wc-accordion-content>
-                      <div>3뎁스</div>
-                    </wc-accordion-content>
-                  </wc-accordion-item>
-                  <wc-accordion-item>
-                    <wc-accordion-title href="http://naver.com">2뎁스</wc-accordion-title>
-                    <wc-accordion-content>
-                      <div>3뎁스</div>
-                    </wc-accordion-content>
-                  </wc-accordion-item>
-                </wc-accordion-content>
-              </wc-accordion-item>
-            </wc-accordion>
+            <wc-accd class="sample-accordion" mode="combine">
+              <wc-accd-item>
+                <div slot="title">
+                  <a href="#">1뎁스</a>
+                </div>
+                <div slot="content">2뎁스</div>
+              </wc-accd-item>
+              <wc-accd-item open>
+                <div slot="title">
+                  <a href="#">1뎁스</a>
+                </div>
+                <div slot="content">2뎁스</div>
+              </wc-accd-item>
+              <wc-accd-item>
+                <div slot="title">
+                  <a href="#">1뎁스</a>
+                </div>
+                <div slot="content">
+                  <wc-accd-item>
+                    <div slot="title">
+                      <a href="#">2뎁스</a>
+                    </div>
+                    <div slot="content">3뎁스</div>
+                  </wc-accd-item>
+                  <wc-accd-item>
+                    <div slot="title">
+                      <a href="#">2뎁스</a>
+                    </div>
+                    <div slot="content">3뎁스</div>
+                  </wc-accd-item>
+                </div>
+              </wc-accd-item>
+              <wc-accd-item>
+                <div slot="title">
+                  <a href="https://naver.com" target="_blank">1뎁스 (2뎁스 없이 단독일 경우 링크작동)</a>
+                </div>
+              </wc-accd-item>
+            </wc-accd>
           </div>
         </section>
       </div>
