@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UXIS Web Component</title>
+    <script type="module" crossorigin src="/uxis-wc/uxis-wc.js"></script>
+    <link rel="stylesheet" crossorigin href="/uxis-wc/index.css">
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="app-left">
+        <div class="nav-wrapper">
+          <nav class="sample-nav">
+            <ul>
+              <li>
+                <a href="#beforeStart">install</a>
+              </li>
+            </ul>
+          </nav>
+          <hr />
+          <nav class="sample-nav">
+            <li>
+              <a href="#codeBlock" class="notyet">wc-code-block</a>
+            </li>
+            <li>
+              <a href="#hdrag">wc-horizontal-drag</a>
+            </li>
+            <li>
+              <a href="#accordion">wc-accordion</a>
+            </li>
+            <li>
+              <a href="#" class="notyet">wc-skip-nav</a>
+            </li>
+            <li>
+              <a href="#" class="notyet">wc-skip-nav</a>
+            </li>
+            <li>
+              <a href="#" class="notyet">wc-sns-list</a>
+            </li>
+            <li>
+              <a href="#" class="notyet">wc-tooltip</a>
+            </li>
+            <li>
+              <a href="#" class="notyet">wc-loading-spinner</a>
+            </li>
+            <li>
+              <a href="#" class="notyet">wc-preview</a>
+            </li>
+          </nav>
+        </div>
+      </div>
+      <div class="app-right">
+        <section id="#codeBlock" class="sample-section">
+          <h2 class="sample-title">사용방법</h2>
+          <ul class="sample-description">
+            <li>dist/uxis-wc.js를 프로젝트에 넣는다.</li>
+            <li>
+              웹컴포넌트를 사용한다. 예)
+              <code>&lt;web-component&gt;&lt;/web-component&gt;</code>
+            </li>
+          </ul>
+        </section>
+
+        <section id="hdrag" class="sample-section">
+          <h2 class="sample-title">wc-horizontal-drag</h2>
+
+          <ul class="sample-description">
+            <li>wc-horizontal-drag 자체의 너비는 부모의 너비 100% 및 overflow-x:scroll로 설정됨</li>
+            <li>내부 컨텐츠의 너비가 wc-horizontal-drag를 넘칠때 터치기반이 아닌 디바이스에서도 마우스 터치로 스와이프 가능</li>
+            <li>slot은 [slot="description"], [slot="content"]로 css접근가능 (내부의 css는 프로젝트에 맞게 셀프로)</li>
+            <li>테이블, 카드배열 등등 활용</li>
+          </ul>
+
+          <div class="gap"></div>
+
+          <div class="badge">code</div>
+          <wc-code-block>
+            <wc-horizontal-drag scrollbar="none">
+              <!-- 생략가능 -->
+              <div slot="description">↔ 양옆으로 드래그해주세요</div>
+              <!-- 안에 컨텐츠가 부모 width를 넘치게하는 css는 따로 적용해야함 (각자 프로젝트에서)-->
+              <div>내용</div>
+            </wc-horizontal-drag>
+          </wc-code-block>
+          <div class="gap"></div>
+
+          <div class="badge">Props</div>
+          <table class="sample-table">
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>scrollbar</code></td>
+                <td><code>string</code></td>
+                <td><code>visible</code></td>
+                <td><code>visible</code>/<code>none</code></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="gap"></div>
+
+          <div class="badge">Sample</div>
+          <div style="display: flex; gap: 30px">
+            <div style="width: 600px; border: 6px solid #eee; border-radius: 16px; overflow: hidden">
+              <style>
+                .horizontal-table-sample {
+                  padding: 20px;
+                }
+                .horizontal-table-sample [slot='description'] {
+                  padding: 10px;
+                  background: #f4f7f9;
+                  border-radius: 6px;
+                }
+                .horizontal-table-sample .wrapper {
+                  margin: 0 20px;
+                  padding: 10px;
+                  background: #f4f7f9;
+                  border-radius: 6px;
+                }
+                .horizontal-table-sample .sample-table {
+                  width: 1000px;
+                }
+              </style>
+              <wc-horizontal-drag scrollbar="visible" class="horizontal-table-sample">
+                <div slot="description">↔ 양옆으로 드래그해주세요</div>
+                <table class="sample-table">
+                  <colgroup>
+                    <col style="width: 30%" />
+                    <col />
+                    <col style="width: 30%" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>2</td>
+                      <td>3</td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>2</td>
+                      <td>3</td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>2</td>
+                      <td>3</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </wc-horizontal-drag>
+            </div>
+            <div style="width: 600px; border: 6px solid #eee; border-radius: 16px; overflow: hidden">
+              <style>
+                .card-list-wrapper {
+                  width: 100%;
+                  padding: 30px;
+                }
+                .card-list {
+                  white-space: nowrap;
+                  font-size: 0;
+                }
+                .card-list .card {
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  width: 100px;
+                  height: 140px;
+                  background: #000;
+                  margin: 0 4px 0 0;
+                  border-radius: 4px;
+                  color: #fff;
+                  font-size: 14px;
+                  font-weight: bold;
+                }
+                .card-list .card:last-child {
+                  margin-right: 30px;
+                }
+              </style>
+              <wc-horizontal-drag>
+                <div class="card-list-wrapper">
+                  <div class="card-list">
+                    <div class="card">유</div>
+                    <div class="card">시</div>
+                    <div class="card">스</div>
+                    <div class="card">짱</div>
+                    <div class="card">유</div>
+                    <div class="card">시</div>
+                    <div class="card">스</div>
+                    <div class="card">짱</div>
+                  </div>
+                </div>
+              </wc-horizontal-drag>
+            </div>
+          </div>
+        </section>
+
+        <section id="accordion" class="sample-section">
+          <h2 class="sample-title">wc-accordion</h2>
+          <ul class="sample-description">
+            <li>간단한 '자주묻는질문'등에 사용하는 아코디언</li>
+          </ul>
+
+          <div class="gap"></div>
+
+          <div class="badge">Props</div>
+          <table class="sample-table">
+            <thead>
+              <tr>
+                <th colspan="4" class="th-title">wc-accd</th>
+              </tr>
+              <tr>
+                <th>Property</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>mode</code></td>
+                <td><code>string</code></td>
+                <td><code>single</code></td>
+                <td><code>combine</code>or<code>single</code></td>
+              </tr>
+            </tbody>
+            <thead>
+              <tr>
+                <th colspan="4" class="th-title">wc-accd-item</th>
+              </tr>
+              <tr>
+                <th>Property</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>open</code></td>
+                <td></td>
+                <td></td>
+                <td>처음 열어두기 원하는 item에 <code>open</code>적어주세요</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="gap"></div>
+
+          <div class="badge">Sample</div>
+          <div style="width: 600px; border: 6px solid #eee; border-radius: 16px; overflow: hidden; padding: 20px">
+            <style>
+              .sample-accordion wc-accd-item {
+                margin-bottom: 10px;
+              }
+              .sample-accordion [slot='title'] a {
+                display: block;
+                padding: 1em 12px;
+                background: #f8f9fa;
+                font-weight: bold;
+                border-radius: 8px;
+              }
+
+              .sample-accordion [slot='content'] {
+                display: block;
+                border: 1px solid #eee;
+                padding: 12px;
+                margin-top: 4px;
+                border-radius: 8px;
+              }
+            </style>
+            <wc-accd class="sample-accordion" mode="combine">
+              <wc-accd-item>
+                <div slot="title">
+                  <a href="#">1뎁스</a>
+                </div>
+                <div slot="content">2뎁스</div>
+              </wc-accd-item>
+              <wc-accd-item open>
+                <div slot="title">
+                  <a href="#">1뎁스</a>
+                </div>
+                <div slot="content">2뎁스</div>
+              </wc-accd-item>
+              <wc-accd-item>
+                <div slot="title">
+                  <a href="#">1뎁스</a>
+                </div>
+                <div slot="content">
+                  <wc-accd-item>
+                    <div slot="title">
+                      <a href="#">2뎁스</a>
+                    </div>
+                    <div slot="content">3뎁스</div>
+                  </wc-accd-item>
+                  <wc-accd-item>
+                    <div slot="title">
+                      <a href="#">2뎁스</a>
+                    </div>
+                    <div slot="content">3뎁스</div>
+                  </wc-accd-item>
+                </div>
+              </wc-accd-item>
+              <wc-accd-item>
+                <div slot="title">
+                  <a href="https://naver.com" target="_blank">1뎁스 (2뎁스 없이 단독일 경우 링크작동)</a>
+                </div>
+              </wc-accd-item>
+            </wc-accd>
+          </div>
+        </section>
+      </div>
+    </div>
+
+  </body>
+</html>
