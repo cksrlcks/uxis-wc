@@ -8,6 +8,10 @@
   </head>
 
   <body>
+    <wc-skip-nav>
+      <a href="#container">본문바로가기</a>
+      <a href="#gnb">주메뉴바로가기</a>
+    </wc-skip-nav>
     <div id="app">
       <div class="app-left">
         <div class="nav-wrapper">
@@ -21,16 +25,13 @@
           <hr />
           <nav class="sample-nav">
             <li>
-              <a href="#codeBlock" class="notyet">wc-code-block</a>
-            </li>
-            <li>
               <a href="#hdrag">wc-horizontal-drag</a>
             </li>
             <li>
               <a href="#accordion">wc-accordion</a>
             </li>
             <li>
-              <a href="#" class="notyet">wc-skip-nav</a>
+              <a href="#skipNav">wc-skip-nav</a>
             </li>
             <li>
               <a href="#" class="notyet">wc-sns-list</a>
@@ -43,6 +44,9 @@
             </li>
             <li>
               <a href="#" class="notyet">wc-preview</a>
+            </li>
+            <li>
+              <a href="#codeBlock" class="notyet">wc-code-block</a>
             </li>
           </nav>
         </div>
@@ -351,6 +355,73 @@
                 </div>
               </wc-accd-item>
             </wc-accd>
+          </div>
+        </section>
+
+        <section id="skipNav" class="sample-section">
+          <h2 class="sample-title">wc-skip-nav</h2>
+          <ul class="sample-description">
+            <li>스킵네비게이션</li>
+            <li>color, background 변경가능 ex) <code>color="#fc0", background="#fff"</code></li>
+          </ul>
+
+          <div class="gap"></div>
+
+          <div class="badge">code</div>
+          <wc-code-block>
+            <wc-skip-nav>
+              <a href="#container">본문바로가기</a>
+              <a href="#gnb">주메뉴바로가기</a>
+            </wc-skip-nav>
+          </wc-code-block>
+
+          <div class="gap"></div>
+
+          <div class="badge">Props</div>
+          <table class="sample-table">
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>color</code></td>
+                <td><code>string</code></td>
+                <td><code>#fff</code></td>
+                <td>컬러코드</td>
+              </tr>
+              <tr>
+                <td><code>background</code></td>
+                <td><code>string</code></td>
+                <td><code>#000</code></td>
+                <td>컬러코드</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="gap"></div>
+
+          <div class="badge">Sample</div>
+          <div
+            style="
+              position: relative;
+              width: 600px;
+              height: 150px;
+              border: 6px solid #eee;
+              border-radius: 16px;
+              overflow: hidden;
+              padding: 20px;
+            "
+          >
+            <wc-skip-nav>
+              <a href="#container">본문바로가기</a>
+              <a href="#gnb">주메뉴바로가기</a>
+            </wc-skip-nav>
+            스킵네비게이션 샘플
           </div>
         </section>
       </div>
