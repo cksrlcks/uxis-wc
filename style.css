@@ -239,6 +239,11 @@ table td {
   width: 240px;
   border-right: 1px solid #eee;
   padding: 20px;
+  flex: 0 0 auto;
+  position: sticky;
+  left: 0;
+  background: #fff;
+  z-index: 1;
 }
 
 .app-left .sample-nav .notyet {
@@ -262,8 +267,9 @@ table td {
 }
 
 .app-right {
-  flex: 1;
   background: #f8f9fa;
+  flex: 1 0 1200px;
+  overflow-x: auto;
 }
 
 .sample-nav li a {

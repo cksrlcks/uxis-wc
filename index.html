@@ -33,9 +33,6 @@
               <a href="#" class="notyet">wc-skip-nav</a>
             </li>
             <li>
-              <a href="#" class="notyet">wc-skip-nav</a>
-            </li>
-            <li>
               <a href="#" class="notyet">wc-sns-list</a>
             </li>
             <li>
@@ -206,6 +203,47 @@
           <ul class="sample-description">
             <li>간단한 '자주묻는질문'등에 사용하는 아코디언</li>
           </ul>
+
+          <div class="gap"></div>
+
+          <div class="badge">code</div>
+          <wc-code-block>
+            <wc-accd class="sample-accordion" mode="combine">
+              <!-- slot 'title'과 'content'안에 내용넣기 -->
+              <wc-accd-item>
+                <div slot="title">
+                  <a href="#">1뎁스</a>
+                </div>
+                <div slot="content">2뎁스</div>
+              </wc-accd-item>
+              <!-- 중첩으로도 가능 -->
+              <wc-accd-item>
+                <div slot="title">
+                  <a href="#">1뎁스</a>
+                </div>
+                <div slot="content">
+                  <wc-accd-item>
+                    <div slot="title">
+                      <a href="#">2뎁스</a>
+                    </div>
+                    <div slot="content">3뎁스</div>
+                  </wc-accd-item>
+                  <wc-accd-item>
+                    <div slot="title">
+                      <a href="#">2뎁스</a>
+                    </div>
+                    <div slot="content">3뎁스</div>
+                  </wc-accd-item>
+                </div>
+              </wc-accd-item>
+              <!-- content slot이 없을경우 a링크 활성화됨 -->
+              <wc-accd-item>
+                <div slot="title">
+                  <a href="https://naver.com" target="_blank">1뎁스 (2뎁스 없이 단독일 경우 링크작동)</a>
+                </div>
+              </wc-accd-item>
+            </wc-accd>
+          </wc-code-block>
 
           <div class="gap"></div>
 

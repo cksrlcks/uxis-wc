@@ -10,7 +10,7 @@ export default class Element extends LitElement {
 
   constructor() {
     super();
-    this.scrollbar = 'visible';
+    this.scrollbar = 'none';
     this.space = 0;
     this.description = false;
 
