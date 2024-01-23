@@ -355,3 +355,7 @@ table td {
   background: #f8f9fa;
   text-align: left;
 }
+
+.sample-accordion .eeee {
+  color: Red;
+}

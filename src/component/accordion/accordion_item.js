@@ -26,9 +26,16 @@ export class Element extends LitElement {
   firstUpdated() {
     this.header = this.shadowRoot.querySelector('[name="title"]');
     this.content = this.shadowRoot.querySelector('[name="content"]');
-    if (this.open) {
-      this.content.classList.add('inital-open');
+    this.headerEl = this.header.assignedElements({ flatten: true })[0].children[0];
+
+    if (this.hasAttribute('open')) {
+      this.open = true;
+      this.content.classList.add('initial-open');
+      this.headerEl.title = '열림';
+    } else {
+      this.headerEl.title = '닫힘';
     }
+
     this.customEvent = new CustomEvent('clickTitle', {
       bubbles: true,
       composed: true
@@ -40,14 +47,20 @@ export class Element extends LitElement {
         this.dispatchEvent(this.customEvent);
       }
     });
+
+    this.shadowRoot.querySelector('[name="title"]').addEventListener('focus', function () {
+      console.log('ee');
+    });
   }
 
   attributeChangedCallback(name, oldval, newval) {
     if (this.content) {
       if (this.hasAttribute('open')) {
         slideDown(this.content);
+        this.headerEl.title = '열림';
       } else {
         slideUp(this.content);
+        this.headerEl.title = '닫힘';
       }
     }
     super.attributeChangedCallback(name, oldval, newval);

@@ -13,7 +13,6 @@ export default class Element extends LitElement {
   }
 
   render() {
-    console.log(this.color);
     return html`
       <style>
         :host {
